@@ -1,0 +1,283 @@
+:root {
+  @import url('https://fonts.googleapis.com/css?family=Cousine&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Varela+Round&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Cabin+Sketch&display=swap');
+
+  --texture: radial-gradient(#259adc 15%, #666666 15%) 8px 8px, radial-gradient(#3838ff 10%, #7fc0e5 10%) 5px 5px;
+  --textureTaille: 5px 5px;
+  --policeSansSerif : 'Varela Round', sans-serif;
+  --policeBouton: 'Cabin Sketch', 'Source Code Pro', monospace, sans, var(--policeSansSerif), 'Source Code Pro', monospace; 
+  --policeBoutonTaille: 5vw; 
+
+  --cadreFond: #666666;
+  --cadrePadding:5px 10px;
+  --cadreBordureRayon:6px;
+  --cadreBordureCouleur: #202020;
+  --cadreBordureStyle: solid;
+
+  --policeCadran: 'Source Code Pro', monospace;
+  --policeCadranTaille: 25vw;
+  --cadranCouleur: #6edb00;
+  --cadranFond:#202020;
+  --cadranPadding:10px;
+
+  --bordureRayon: 8px;
+  --labelBordureRayon:5px;
+  --bordureLargeur:thick;
+
+  --labelCouleur: #ffffff;
+  --labelFond: rgba(255,36,36, 1.0);
+  --labelBordure: rgba(255,36,36, 0.75);
+  --labelBordureType: solid;
+  --labelPolice: var(--policeSansSerif);
+  --labelPoliceTaille: 10vw;
+
+  --labelTextShadow: 4px -2px 0px #202020, 3px -1px 0px rgba(0,0,0,0.2);
+
+  --razCouleur: rgba(255,255,255,.95); 
+  --razFond: rgba(255,41,41,.85);
+  --razBordureCouleur: rgba(255,255,255,.95);
+
+  --poussoirCouleur: #6edb00;
+  --poussoirFond: #202020;
+  --poussoirGraisse: bold;
+  --poussoirBordureStyle: ridge;
+
+  --ombre1: 0px 0px 3px black, 1px 0px 2px rgba(0,0,0,.5);
+  --ombre2: 0px 0px 3px rgba(255,255,255,.8), 1px 0px 2px rgba(255,255,255,.25);
+
+  --transition: all 750ms ease-out;
+  --articleLargeurPortrait: 90vw;
+  --articleHauteurPortrait: 80vw;
+  --articleLargeurPaysage: 45vw;
+  --articleHauteurPaysage: 70vw;
+
+}
+
+*, *:before, *:after {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html {
+  font-size:100%;
+}
+
+body {
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+  align-items:center;
+  background:var(--texture);
+  background-size: var(--textureTaille);
+}
+
+
+main#principal {
+  width:96vw;
+  padding:3vh 0;
+}
+
+article.cadre {
+  background-color:var(--cadreFond);
+  border-radius:var(--bordureRayon);
+  border:var(--bordureLargeur) var(--cadreBordureStyle) var(--cadreBordureCouleur);
+  transition: var(--transition);
+  padding:var(--cadrePadding);
+}
+
+label {
+  display:block;
+  font-family:var(--labelPolice);
+  font-size:var(--labelPoliceTaille); 
+  text-align:center;
+  border-width:var(--bordureLargeur);
+  border-radius: var(--labelBordureRayon);
+  box-shadow: var(--ombre1);
+  transition: var(--transition);  
+}
+
+label.couleur {
+  background: var(--labelFond); 
+  border:var(--bordureLargeur) var(--labelBordureType) var(--labelBordure);
+  cursor:pointer;
+}
+
+label.nomCouleur {
+  color: var(--labelCouleur);
+  background: inherit;
+  border:var(--bordureLargeur) solid inherit;
+  text-shadow: var(--labelTextShadow);
+  padding:10px 0;
+  cursor:pointer;
+}
+
+label.nomCouleur:active, label.nomCouleur:focus {
+}
+
+
+.cadran {
+  font-family:var(--policeCadran);
+  font-size:var(--policeCadranTaille);
+  color:var(--cadranCouleur);
+  background-color:var(--cadranFond);
+  border-radius:var(--bordureRayon);
+  box-shadow:var(--ombre2);
+  padding:var(--cadranPadding);
+  cursor:pointer;
+  transition: var(--transition);
+}
+
+.plus, .moins, .remiseAzero {
+  font-family: var(--policeBouton);
+  font-size: var(--policeBoutonTaille);
+  text-align:center;
+  color: var(--poussoirCouleur);
+  background-color:var(--poussoirFond);
+  font-weight:var(--poussoirGraisse);
+  border-radius:var(--bordureRayon);
+  border-style:var(--poussoirBordureStyle);
+  box-shadow: var(--ombre1);
+  cursor:pointer;
+}
+
+.plus:focus, .moins:focus, .remiseAzero:focus {
+    outline:none;
+}
+
+.plus, .moins, .remiseAzero {
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content:center;  
+}
+
+.remiseAzero {
+  font-size: var(--policeBoutonTaille);
+  font-family: var(--policeBouton);
+  color: var(--razCouleur);
+  background: var(--razFond);
+  border-color:var(--razBordureCouleur);
+  box-shadow: var(--ombre1);
+  transition: var(--transition);
+  cursor:pointer;
+}
+
+.remiseAzero:hover {
+  color:var(--razFond);
+  background: var(--razBordureCouleur);
+  border-color: var(--razFond);  
+}
+
+/* Media queries : portrait / paysage */
+/* [Portrait] */
+@media all and (orientation:portrait){
+
+  :root {
+    --policeBoutonTaille: 6vw;
+  }
+
+  main#principal {
+    display:grid;
+    place-items:center center;
+  }
+
+  label.nomCouleur {
+    display:none;
+  }
+
+  .cadre {
+    display:grid;
+    grid-template-columns: repeat(10,1fr);
+    grid-template-rows: repeat(9,1fr);
+    grid-gap:10px;
+  }
+  
+  label.couleur {
+    grid-column:1/11;
+    grid-row:1/2;
+  }
+
+  .cadran {
+    grid-column:1/11;
+    grid-row:2/8;
+  }
+
+  .plus {
+    grid-column:1/4;
+    grid-row:8/10;
+  }
+
+  .remiseAzero {
+    grid-column:4/8;
+    grid-row:8/10;
+  }
+
+  .moins {
+    grid-column:8/11;
+    grid-row:8/10;
+  }
+
+  article.cadre {
+    width:var(--articleLargeurPortrait);
+    height:var(--articleHauteurPortrait);
+    padding:5px;
+    margin:5px;
+  }
+}
+
+/* Paysage */
+@media all and (orientation:landscape){
+  main#principal {
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    place-items:center center;
+  }
+
+  article.cadre {
+    width: var(--articleLargeurPaysage); 
+    height: var(--articleHauteurPaysage);
+  }
+
+  /* Grille */
+  .cadre {
+    display:grid;
+    grid-template-columns: repeat(10,1fr);
+    grid-template-rows: repeat(10,1fr);
+    grid-gap:10px;
+  }
+
+  label.nomCouleur {
+    grid-column:1/11;
+    grid-row:1/2;
+  }
+
+  label.couleur {
+    grid-column:1/11;
+    grid-row:2/3;
+  }
+
+  .cadran {
+    grid-column:1/11;
+    grid-row:3/9;
+  }
+
+  .plus {
+    grid-column:1/4;
+    grid-row:9/11;
+  }
+
+  .remiseAzero {
+    grid-column:4/8;
+    grid-row:9/11;
+  }
+
+  .moins {
+    grid-column:8/11;
+    grid-row:9/11;
+  }
+
+  
+}
