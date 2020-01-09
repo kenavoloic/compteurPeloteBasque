@@ -2,12 +2,12 @@
   "name": "Pilota",
   "version": "1.0.0",
   "description": "Compteur de points pour des parties de pelote basque",
-  "homepage": "http://kenavoloic.github.io/compteurPeloteBasque",
+  "homepage": "http://github.com/kenavoloic/compteurPeloteBasque",
   "keywords": ["pelote basque", "basque pelote", "compteur", "counter", "français","euskara","español","english","occitan"],
   "author": {
       "name": "Kenavo Loïc", 
       "email": "kenavoloic@gmail.com", 
-      "url": "https://kenavoloic.github.io"
+      "url": "https://github.com/kenavoloic"
   },
   "license": "MIT",
   "main": "./src/index.js",
@@ -38,7 +38,7 @@
       "node": ">= 6.0.0",
       "npm": ">= 3.0.0"
   },
-  "browserslist": [
+  "browserlist": [
       "> 1%",
       "last 2 versions",
       "not ie <= 8"
